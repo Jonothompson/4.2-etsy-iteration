@@ -33,8 +33,25 @@ var gbp = _.filter(items, function(currencyCode){
 // Show me how to find which items are made of wood. Please console.log the ones you find.
 // For this question I am going to use filter to find items made of wood
 
-var woodItems = _.filter(items, function(wood){
-    if (woodItems == "wood"){
-    return wood;}
+var woodItems = items.filter(function(wood){
+    return _.contains(wood.materials, "wood");
 });
-console.log(woodItems);
+// console.log(woodItems);
+
+
+// Show me how to find which items are made of eight or more materials. Please console.log the ones you find.
+// For this question I am going to use filter to filter out items with more than 8 materials
+
+var matEight = items.filter(function(mats){
+    return mats.materials.length >= 8;
+});
+console.log(matEight.materials);
+
+
+// Show me how to calculate how many items were made by their sellers
+// For this problem I am going to use filter or Map to find out how many items belong to the same Sellers.
+
+var sellerItems = items.filter(function(item){
+    return item.who_made == "i_did";
+});
+// console.log(sellerItems.length + " " + "were made by their seller");
